@@ -29,7 +29,7 @@ void quickSort(int arr[], int l, int r)
 
 int main()
 {
-    int arr[7] = {10,80,30,90,40,50,70};
+    int arr[7] = {99,80,30,90,40,50,70};
     int n = 7;
     quickSort(arr, 0, n);
     for (int i = 0; i < n; i++)
@@ -38,3 +38,6 @@ int main()
         std::cout << "\t";
     }
 }
+
+
+
