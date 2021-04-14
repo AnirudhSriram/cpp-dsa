@@ -18,38 +18,26 @@ public:
 
     bool enQueue(int value)
     {
-        if (this->isEmpty())
-        {
-            this->arr[i] = value;
-            this->j++;
-            return true;
-        }
-        else if (this->j % this->k == this->i)
-        {
+        if(this->isFull()){
             return false;
-        }
-        else
-        {
-            this->j = this->j % this->k;
-            this->arr[j] = value;
-            int temp = this->j;
-            this->j++;
-            this->j = this->j % this->k;
-            if(this->j == this->i){
-                this->j = temp;
-            }  
+        }else{
+            this->j = (this->j+1)%k;
+            arr[this->j] = value;
             return true;
         }
     }
 
     bool deQueue()
     {
-        if (!this->isEmpty())
-        {
-            i = (i + 1) % k;
-            return true;
+        if(this->isEmpty()){
+            return false;
         }
-        return false;
+        if(this->j == this->i){
+            this->i = 0;
+            this->j = -1;
+        }else{
+            this->i = (this->i+1)%this->k;
+        }
     }
 
     int Front()
@@ -72,12 +60,12 @@ public:
 
     bool isEmpty()
     {
-        return this->i == this->j-1;
+        return this->j == -1 ;
     }
 
     bool isFull()
     {
-        return j == (i - 1) ? true : false;
+        return !this->isEmpty() && (this->j+1)%this->k == this->i;
     }
 };
 
