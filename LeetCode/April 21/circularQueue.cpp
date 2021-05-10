@@ -14,7 +14,7 @@ public:
         this->j = -1;
         this->i = 0;
         this->arr = (int *)calloc(k, sizeof(int));
-    }
+    }   
 
     bool enQueue(int value)
     {
